@@ -7,6 +7,9 @@ var object = {
 
 var it = {
   isEqual: function(arg1, arg2) {
+    console.log(arg1);
+    console.log("===");
+    console.log(arg2);
     it.returnStatement(arg1 === arg2);
   },
 
