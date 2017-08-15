@@ -23,10 +23,10 @@ var it = {
   returnStatement: function(test) {
     if (test){
       var passResponse = passArray[Math.floor(Math.random() * passArray.length)];
-      console.log('%c' + passResponse, 'color: green');
+      console.log('%c' + passResponse, 'color: #86FF00');
     }else{
       var failResponse = failArray[Math.floor(Math.random() * failArray.length)];
-      console.log('%c' + failResponse, 'color: red');
+      console.log('%c' + failResponse, 'color: #EF0000');
     }
   }
 };
