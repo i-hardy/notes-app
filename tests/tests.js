@@ -5,7 +5,7 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
 
 (function(exports) {
   function describe(string, callback) {
-    console.log('%c' + string, 'color: #00C4FF; font-weight: bold');
+    console.log('%c' + string, 'color: #00008B; font-weight: bold');
     callback();
   };
 
