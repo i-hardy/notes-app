@@ -5,7 +5,7 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
 
 (function(exports) {
   function describe(string, callback) {
-    console.log(string);
+    console.log('%c' + string, 'color: #00008B; font-weight: bold');
     callback();
   };
 
@@ -49,4 +49,4 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
 
 
 
-describe("Hello", function(){it.isEqual(1, 1)});
+describe("Test to test if the tests works", function(){it.isEqual(1, 1)});
