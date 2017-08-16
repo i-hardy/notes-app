@@ -34,12 +34,12 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
   };
 
   function describe(string, callback) {
-    console.log(string);
+    console.log('%c' + string, 'color: #7320B4; font-weight: bold');
     callback();
   }
 
   function it(string, callback) {
-    console.log(string);
+    console.log("%c" + string, "color: #C599E7; font-weight: bold");
     callback();
   }
 

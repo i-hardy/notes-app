@@ -27,6 +27,7 @@ describe("NoteList", function () {
     expect(noteList.displayLastNote()).toEqual("third note");
   });
 
-describe("Returns the index of the note", function() {
-  it.isEqual(noteList.showIndex("third note"), 2);
+  it("returns the index of the note", function() {
+    expect(noteList.showIndex("third note")).toEqual(2);
+  });
 });
