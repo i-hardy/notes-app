@@ -13,3 +13,7 @@ NoteList.prototype.addNote = function (text) {
 NoteList.prototype.showNote = function (index) {
   return new NoteViewer(this._noteArray[index]).show();
 };
+
+NoteList.prototype.displayLastNote = function () {
+  return this.noteArray()[noteList._noteArray.length-1].twentyCharPrint();
+};
