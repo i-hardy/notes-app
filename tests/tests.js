@@ -4,27 +4,22 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
 
 
 (function(exports) {
-  function describe(string, callback) {
-    console.log('%c' + string, 'color: #00008B; font-weight: bold');
-    callback();
-  };
-
-  var it = {
-    isEqual: function(arg1, arg2) {
-      console.log(arg1);
-      console.log("===");
-      console.log(arg2);
-      it.returnStatement(arg1 === arg2);
+  var matchers = {
+    assertion: null,
+    toEqual: function(argument) {
+      matchers.returnStatement(matchers.assertion === argument);
     },
 
-    isArrayOfObjects: function(array, objectName) {
-      it.returnStatement(array.every(function(object) {
-        return objectName.prototype.isPrototypeOf(object);
-      }));
+    toBeArray: function() {
+      matchers.returnStatement(Array.isArray(matchers.assertion));
     },
 
-    isTruthy: function(arg) {
-      it.returnStatement(arg !== false || null);
+    toBeObject: function (object) {
+      matchers.returnStatement(object.prototype.isPrototypeOf(matchers.assertion));
+    },
+
+    toBeTruthy: function() {
+      matchers.returnStatement(!!matchers.assertion);
     },
 
     returnStatement: function(test) {
@@ -38,15 +33,28 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
     }
   };
 
+  function describe(string, callback) {
+    console.log(string);
+    callback();
+  }
 
+  function it(string, callback) {
+    console.log(string);
+    callback();
+  }
 
+  function expect(argument) {
+    matchers.assertion = argument;
+    return matchers;
+  }
 
   exports.describe = describe;
   exports.it = it;
+  exports.expect = expect;
 })(this);
 
-
-
-
-
-describe("Test to test if the tests works", function(){it.isEqual(1, 1)});
+describe("A test", function() {
+  it("is a test", function () {
+    expect(1).toEqual(1);
+  });
+});

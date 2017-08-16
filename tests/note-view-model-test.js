@@ -1,5 +1,7 @@
-var noteViewer = new NoteViewer(new Note("hello"))
+var noteViewer = new NoteViewer(new Note("hello"));
 
-describe("NoteViewer should show the required note text", function(){
-  it.isEqual("hello", noteViewer.show());
+describe("NoteViewer", function () {
+  it("should show the required note text", function () {
+    expect(noteViewer.show()).toEqual("hello");
+  });
 });
