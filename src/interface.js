@@ -18,14 +18,9 @@ function getInput() {
 };
 
 function displayNotes() {
-    document
-      .getElementById("evil_plans")
-      .innerHTML = ""
-  noteList.noteArray().forEach(function(note) {
-    document
-      .getElementById("evil_plans")
-      .innerHTML += "<li>" + note.print() + "</li>";
-  });
+  document
+    .getElementById("evil_plans")
+    .innerHTML += "<li>" + noteList.displayLastNote() + "</li>";
 };
 
 function resetForm() {
@@ -33,7 +28,3 @@ function resetForm() {
     .getElementById("evil_form")
     .reset();
 };
-
-// function getChangeHtml(id) {
-//   return document.getElementById(id).innerHTML
-// };
