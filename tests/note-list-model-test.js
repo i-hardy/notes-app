@@ -26,4 +26,7 @@ describe("NoteList", function () {
   it("can display only the last note", function () {
     expect(noteList.displayLastNote()).toEqual("third note");
   });
+
+describe("Returns the index of the note", function() {
+  it.isEqual(noteList.showIndex("third note"), 2);
 });

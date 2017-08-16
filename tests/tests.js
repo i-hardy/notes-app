@@ -53,7 +53,6 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
   exports.expect = expect;
 })(this);
 
-
 describe("A test", function() {
   it("is a test", function () {
     expect(1).toEqual(1);
