@@ -4,4 +4,8 @@ var noteNumber = new Note("abcdefghijklmnopqrstuvwxyz")
 console.log("Notes should return their text");
 it.isEqual("hello world", noteTaker.print());
 
-it.isEqual("abcdefghijklmnopqrst...", noteNumber.twentyCharPrint())
+console.log("Notes under 20 characters shouldnt have ...");
+it.isEqual("hello world", noteTaker.twentyCharPrint());
+
+console.log("Notes above 20 characters shoudl have ...");
+it.isEqual("abcdefghijklmnopqrst...", noteNumber.twentyCharPrint());
