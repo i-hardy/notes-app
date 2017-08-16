@@ -20,7 +20,7 @@ function getInput() {
 function displayNotes() {
   document
     .getElementById("evil_plans")
-    .innerHTML += "<li>" + noteList.displayLastNote() + "</li>";
+    .innerHTML += '<li><a href=#>' + noteList.displayLastNote() + '<a/></li>';
 };
 
 function resetForm() {
@@ -28,3 +28,14 @@ function resetForm() {
     .getElementById("evil_form")
     .reset();
 };
+
+function viewFullNote() {
+  document
+  .getElementById("evil_plans")
+};
+
+function hideForm(id) {
+  document
+  .getElementById(id)
+  .innerHTML = "<style> #"+id+"{display:none;} </style>";
+}

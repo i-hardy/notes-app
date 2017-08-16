@@ -17,3 +17,11 @@ NoteList.prototype.showNote = function (index) {
 NoteList.prototype.displayLastNote = function () {
   return this.noteArray()[noteList._noteArray.length-1].twentyCharPrint();
 };
+
+NoteList.prototype.showIndex = function (string) {
+  for (i=0; i<this._noteArray.length; i++) {
+    if (this._noteArray[i].print() === string) {
+      return i;
+    }
+  }
+};

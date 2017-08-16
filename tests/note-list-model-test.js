@@ -20,3 +20,7 @@ describe("Showing notes works thanks to passing index through", function() {
 describe("Display last note only", function() {
   it.isEqual("third note", noteList.displayLastNote());
 });
+
+describe("Returns the index of the note", function() {
+  it.isEqual(noteList.showIndex("third note"), 2);
+});
