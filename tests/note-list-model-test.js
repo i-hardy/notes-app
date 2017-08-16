@@ -2,14 +2,28 @@ var noteList = new NoteList();
 noteList.addNote("hello");
 noteList.addNote("second note");
 noteList.addNote("third note");
-var passedIndex = 1
+var passedIndex = 1;
 
-console.log("The note list contains an array of notes");
-it.isArrayOfObjects(noteList.noteArray(), Note);
-console.log("The create method creates a new note object");
-it.isEqual("hello", noteList.noteArray()[0].print());
-console.log("Showing notes works thanks to passing index through");
-it.isEqual(noteList.showNote(passedIndex), "second note");
+describe("NoteList", function () {
+  it("contains an array", function () {
+    expect(noteList.noteArray()).toBeArray();
+  });
 
-console.log("Display last note only");
-it.isEqual("third note", noteList.displayLastNote());
+  it("contains an array of objects", function () {
+    noteList.noteArray().forEach(function (note) {
+      expect(note).toBeObject(Note);
+    });
+  });
+
+  it("can create a new note object", function () {
+    expect(noteList.noteArray()[0].print()).toEqual("hello");
+  });
+
+  it("can show objects based on their index", function () {
+    expect(noteList.showNote(passedIndex)).toEqual("second note");
+  });
+
+  it("can display only the last note", function () {
+    expect(noteList.displayLastNote()).toEqual("third note");
+  });
+});
