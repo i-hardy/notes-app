@@ -19,9 +19,7 @@ NoteList.prototype.displayLastNote = function () {
 };
 
 NoteList.prototype.showIndex = function (string) {
-  for (i=0; i<this._noteArray.length; i++) {
-    if (this._noteArray[i].print() === string) {
-      return i;
-    }
-  }
+  return this._noteArray.findIndex(function(note){
+    return note.print() === string;
+  });
 };
