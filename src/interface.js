@@ -10,7 +10,6 @@ function collectParams() {
     .addEventListener("submit", function(submitEvent) {
       submitEvent.preventDefault();
       getInput();
-      displayNotes();
       resetForm();
     });
 };
@@ -18,13 +17,10 @@ function collectParams() {
 function getInput() {
   input = document.forms[0].new_evil_note.value;
   noteList.addNote(input);
-};
-
-function displayNotes() {
-  var string = noteList.displayLastNote()
+  var index = noteList.noteArray().length - 1
   document
     .getElementById("evil_list")
-    .innerHTML += "<li><a href='#"+noteList.showIndex(string)+"'>" +  string + "<a/></li>";
+    .innerHTML += "<li><a href='#" + index + "'>" +  noteList.displayLastNote() + "<a/></li>";
 };
 
 function resetForm() {
