@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Nosifer");
+
+@-webkit-keyframes boxPulse {
+  from {
+    border: 2px solid #B3001B;
+    -webkit-box-shadow: 0 0 9px #B3001B;
+  }
+  50% {
+    border: 2px solid #F90C00;
+    -webkit-box-shadow: 0 0 18px #F90C00;
+  }
+  to {
+    border: 2px solid #B3001B;
+    -webkit-box-shadow: 0 0 9px #B3001B;
+  }
+}
+@-webkit-keyframes buttonPulse {
+  from {
+    background: #B3001B;
+    -webkit-box-shadow: 0 0 9px #B3001B;
+  }
+  50% {
+    background: #F90C00;
+    -webkit-box-shadow: 0 0 18px #F90C00;
+  }
+  to {
+    background: #B3001B;
+    -webkit-box-shadow: 0 0 9px #B3001B;
+  }
+}
+
+body {
+  background: #1D1A1B;
+  font-family: 'Open Sans', sans-serif;
+  color: #E6ECF0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-family: 'Nosifer', cursive;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+h2 {
+  font-family: 'Nosifer', cursive;
+  line-height: 0.25em;
+}
+
+.evil_form_and_list {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+.evil_form_and_list form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.evil_form_and_list textarea {
+  border: 2px solid #B3001B;
+  background: #E6ECF0;
+  margin: 2em 0em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.evil_form_and_list textarea:focus {
+  -webkit-animation-name: boxPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  outline: none;
+}
+
+.evil_form_and_list ul {
+  display: block;
+  list-style: none;
+  align-items: left;
+}
+
+.evil_form_and_list li {
+  margin-left: -10%;
+}
+
+.evil_form_and_list a {
+  text-decoration: none;
+  color: #E6ECF0;
+}
+
+.full_evil_note {
+  display: block;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+button {
+  border: 2px solid #B3001B;
+  background: #B3001B;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75em;
+  color: #E6ECF0;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover {
+  -webkit-animation-name: buttonPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}

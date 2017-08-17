@@ -2,25 +2,26 @@
 <html lang="en">
   <head>
     <title>Evil Notes</title>
+    <link rel="stylesheet" href="./assets/evil-style.css">
   </head>
 
   <body>
 
     <h1>Evil Notes</h1>
 
-  <section id="evil_form_and_list">
+  <section id="evil_form_and_list" class="evil_form_and_list">
     <form id="evil_form">
-      New evil note: <br>
-      <textarea rows = "5" cols="50" id="new_evil_note"></textarea><br>
+      <h2>New evil note:</h2>
+      <textarea rows = "10" cols="50" id="new_evil_note"></textarea><br>
       <button type="submit" id ="create_evil_note">Create evil note</button>
     </form>
 
-    Notes:
+    <h2>Notes:</h2>
     <ul id="evil_list">
     </ul>
   </section>
 
-  <section id="full_evil_note" style="display:none;">
+  <section id="full_evil_note" class="full_evil_note" style="display:none;">
     <section id="evil_note_text">
     </section><br>
     <button id="evil_button">Go back to writing evil notes</button>
