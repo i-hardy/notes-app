@@ -36,11 +36,14 @@ function resetForm() {
 function viewFullNote() {
   window
   .addEventListener("hashchange", function() {
+    console.log(getNoteFromUrl(location));
+    if (getNoteFromUrl(location)) {
     document
     .getElementById("evil_note_text")
     .innerHTML = showOneNote();
     revealElement("full_evil_note")
     hideElement("evil_form_and_list")
+  };
   });
 };
 
@@ -48,7 +51,7 @@ function viewForm() {
   document
   .getElementById("evil_button")
   .addEventListener("click", function() {
-    window.location.href = "";
+    window.location.replace("#");
     revealElement("evil_form_and_list")
     hideElement("full_evil_note")
   })
