@@ -1,5 +1,6 @@
 collectParams();
 viewFullNote();
+viewForm();
 
 var noteList = new NoteList();
 
@@ -15,14 +16,14 @@ function collectParams() {
 };
 
 function getInput() {
-  input = document.forms[0].evil_deed.value;
+  input = document.forms[0].new_evil_note.value;
   noteList.addNote(input);
 };
 
 function displayNotes() {
   var string = noteList.displayLastNote()
   document
-    .getElementById("evil_plans")
+    .getElementById("evil_list")
     .innerHTML += "<li><a href='#"+noteList.showIndex(string)+"'>" +  string + "<a/></li>";
 };
 
@@ -35,11 +36,22 @@ function resetForm() {
 function viewFullNote() {
   window
   .addEventListener("hashchange", function() {
-    hideForm("to_hide");
     document
-    .getElementById("full_evil_note")
+    .getElementById("evil_note_text")
     .innerHTML = showOneNote();
+    revealElement("full_evil_note")
+    hideElement("evil_form_and_list")
   });
+};
+
+function viewForm() {
+  document
+  .getElementById("evil_button")
+  .addEventListener("click", function() {
+    window.location.href = "";
+    revealElement("evil_form_and_list")
+    hideElement("full_evil_note")
+  })
 };
 
 function getNoteFromUrl(location) {
@@ -50,8 +62,14 @@ function showOneNote() {
   return noteList.showNote(getNoteFromUrl(window.location));
 };
 
-function hideForm(id) {
+function hideElement(id) {
   document
   .getElementById(id)
-  .innerHTML = "<style> #"+id+"{display:none;} </style>";
+  .style = "display:none;";
+}
+
+function revealElement(id) {
+  document
+  .getElementById(id)
+  .style = "";
 }
