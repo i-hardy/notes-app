@@ -34,15 +34,8 @@ body {
   margin: 0;
 }
 
-img{
-  margin-top: -50px;
-  margin-left: 300px;
-
-
-}
-
 section.styling {
-  padding: 200px 50px;
+  padding: 50px 50px 300px 50px;
   filter: invert(0%);
   font-family: 'Open Sans', sans-serif;
   color: #E6ECF0;
@@ -55,18 +48,53 @@ section.styling {
 
 }
 
-h1 {
-  font-family: 'Nosifer', cursive;
-  align-content: center;
+header {
   margin-left: 10%;
   margin-right: auto;
-  text-shadow: 2px 2px #000000;
+}
+
+h1 {
+  margin: 0;
+  display: inline-block;
+  font-family: 'Nosifer', cursive;
+  font-size: 40px;
+  color: #e80b00;
+  align-content: center;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+h1:hover {
+  -webkit-transform: scale(1.05);
+  -webkit-transition: .05s ease-in-out;
+	transition: .05s ease-in-out;
+}
+
+img {
+  height: 30px;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: -10px;
+}
+
+img:hover {
+  -webkit-filter: drop-shadow(2px 2px 8px #e80b00);
+  filter:         drop-shadow(2px 2px 8px #e80b00);
+  -webkit-transform: rotate(-2deg) scale(1.5);
+  -webkit-transition: .05s ease-in-out;
+  transition: .05s ease-in-out;
 }
 
 h2 {
   font-family: 'Nosifer', cursive;
   line-height: 0.25em;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 2px 2px 5px #000000;
+  color: #fff;
+}
+
+h2:hover {
+  -webkit-transform: scale(1.05);
+  -webkit-transition: .05s ease-in-out;
+	transition: .05s ease-in-out;
 }
 
 .evil_form_and_list {
@@ -104,6 +132,13 @@ h2 {
   font-family: 'Open Sans', sans-serif;
 }
 
+.evil_form_and_list input:focus {
+  -webkit-animation-name: boxPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  outline: none;
+}
+
 .evil_form_and_list textarea:focus {
   -webkit-animation-name: boxPulse;
   -webkit-animation-duration: 2s;
@@ -113,15 +148,19 @@ h2 {
 
 .evil_form_and_list ul {
   display: block;
-  list-style: none;
   align-items: left;
 }
 
 .evil_form_and_list li {
-  margin-left: -10%;
+  list-style: none;
+}
+
+ul#evil_list {
+  padding-left: 10px;
 }
 
 .evil_form_and_list a {
+  margin-left: -10%;
   text-decoration: none;
   color: #E6ECF0;
 }
@@ -144,6 +183,7 @@ button {
 }
 
 button:hover {
+  -webkit-transform: scale(1.05);
   -webkit-animation-name: buttonPulse;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -152,4 +192,5 @@ button:hover {
 
 button:focus {
   outline: none;
+  -webkit-transform: scale(1.05);
 }
