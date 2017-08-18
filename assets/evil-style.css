@@ -67,7 +67,19 @@ h2 {
   margin-bottom: 3em;
 }
 
+.evil_form_and_list .email_form {
+  display: block;
+  margin: 0;
+}
+
 .evil_form_and_list textarea {
+  border: 2px solid #B3001B;
+  background: #E6ECF0;
+  margin: 2em 0em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.evil_form_and_list input {
   border: 2px solid #B3001B;
   background: #E6ECF0;
   margin: 2em 0em;

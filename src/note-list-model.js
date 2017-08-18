@@ -23,3 +23,11 @@ NoteList.prototype.showIndex = function (string) {
     return note.print() === string;
   });
 };
+
+NoteList.prototype.displayAllNotes = function() {
+  var notes = [];
+  for (i=0; i<this.noteArray().length; i++) {
+    notes.push(this.showNote(i));
+  };
+  return notes.join("%0D");
+};
