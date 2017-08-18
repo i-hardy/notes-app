@@ -7,23 +7,57 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
   var matchers = {
     assertion: null,
     toEqual: function(argument) {
-      matchers.returnStatement(matchers.assertion === argument);
+      var outcome = matchers.assertion === argument;
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to equal " + argument);
+      }
+      return outcome;
     },
 
     toBeArray: function() {
-      matchers.returnStatement(Array.isArray(matchers.assertion));
+      var outcome = Array.isArray(matchers.assertion);
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to be an Array");
+      }
+      return outcome;
     },
 
     toBeObject: function (object) {
-      matchers.returnStatement(object.prototype.isPrototypeOf(matchers.assertion));
+      var outcome = object.prototype.isPrototypeOf(matchers.assertion);
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to be an instance of " + object);
+      }
+      return outcome;
     },
 
     toBeTruthy: function() {
-      matchers.returnStatement(!!matchers.assertion);
+      var outcome = !!matchers.assertion;
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to be truthy");
+      }
+      return outcome;
     },
 
     toBeFalsey: function () {
-      matchers.returnStatement(!matchers.assertion);
+      var outcome = !matchers.assertion;
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to be falsey");
+      }
+      return outcome;
+    },
+
+    toRespondTo: function (respondFunction) {
+      var outcome = !!matchers.assertion[respondFunction.toString()];
+      matchers.returnStatement(outcome);
+      if (!outcome) {
+        console.log("You seem to have expected " + matchers.assertion + " to respond to " + respondFunction);
+      }
+      return outcome;
     },
 
     returnStatement: function(test) {
@@ -79,6 +113,19 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
 describe("A test", function() {
   it("is a test", function () {
     expect(1).toEqual(1);
+  });
+});
+
+describe("A deliberate failure", function () {
+  it("tells you about your mismatched expectations", function () {
+    expect(1).toEqual(2);
+  });
+});
+
+describe("toRespondTo", function () {
+  it("returns true if an object responds to the passed method", function () {
+    var note = new Note("hello");
+    expect(note).toRespondTo("print");
   });
 });
 
