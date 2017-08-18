@@ -22,6 +22,10 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
       matchers.returnStatement(!!matchers.assertion);
     },
 
+    toBeFalsey: function () {
+      matchers.returnStatement(!matchers.assertion);
+    },
+
     returnStatement: function(test) {
       if (test){
         var passResponse = passArray[Math.floor(Math.random() * passArray.length)];
@@ -53,8 +57,43 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
   exports.expect = expect;
 })(this);
 
+(function (exports) {
+  var mockObject = {
+    name: null,
+    stubFunction: function (functionName, returnValue) {
+      mockObject[functionName.toString()] = function () {
+        return returnValue;
+      };
+    },
+  };
+
+  function mock(objectName) {
+    mockObject.name = objectName;
+    return mockObject;
+  }
+
+  exports.mock = mock;
+})(this);
+
 describe("A test", function() {
   it("is a test", function () {
     expect(1).toEqual(1);
+  });
+});
+
+describe("A mock", function () {
+  var aMock = mock("Note");
+
+  it("is an object", function () {
+    expect(aMock).toBeObject(Object);
+  });
+
+  it("is not an object of the mocked class", function () {
+    expect(Note.prototype.isPrototypeOf(aMock)).toBeFalsey();
+  });
+
+  it("can have methods and their return values stubbed onto it", function () {
+    aMock.stubFunction("fakeFunction", true);
+    expect(aMock.fakeFunction()).toEqual(true);
   });
 });
