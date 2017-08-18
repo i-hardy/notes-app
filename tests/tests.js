@@ -62,6 +62,7 @@ var passArray = ["Your code is OK", "I suppose that was alright"];
     name: null,
     stubFunction: function (functionName, returnValue) {
       mockObject[functionName.toString()] = function () {
+        mockObject[functionName.toString() + "WasCalled"] = true;
         return returnValue;
       };
     },
@@ -95,5 +96,10 @@ describe("A mock", function () {
   it("can have methods and their return values stubbed onto it", function () {
     aMock.stubFunction("fakeFunction", true);
     expect(aMock.fakeFunction()).toEqual(true);
+  });
+
+  it("can tell if the stubbed function was called", function () {
+    aMock.fakeFunction();
+    expect(aMock.fakeFunctionWasCalled).toEqual(true);
   });
 });
