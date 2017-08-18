@@ -8,7 +8,10 @@
 
   <body>
 
+    <section class='styling'>
+
     <h1>Evil Notes</h1>
+    <img onclick="LigthStrike()" src="assets/lightning.png" height="50" width="50">
 
   <section id="evil_form_and_list" class="evil_form_and_list">
     <form id="evil_form">
@@ -25,17 +28,20 @@
       <input type="text" id="email"><br>
       <button type="submit">Email my evil notes</button>
     </form>
+
+
   </section>
 
   <section id="full_evil_note" class="full_evil_note" style="display:none;">
     <section id="evil_note_text">
     </section><br>
-    <button id="evil_button">Go back to writing evil notes</button>
+    <button id="evil_button" >Go back to writing evil notes</button>
   </section>
 
     <script src="src/note-model.js" type="text/javascript"></script>
     <script src="src/note-view-model.js" type="text/javascript"></script>
     <script src="src/note-list-model.js" type="text/javascript"></script>
     <script src="src/interface.js"></script>
+    </section>
   </body>
 </html>
