@@ -5,6 +5,16 @@ collectEmail();
 
 var noteList = new NoteList();
 
+function LigthStrike() {
+    var x = document.getElementsByTagName("body").item(0)
+    if (x.style.filter === 'invert(100%)') {
+        x.style.filter = 'invert(0%)'
+    } else {
+        x.style.filter = 'invert(100%)'
+    }
+}
+
+
 function collectParams() {
   document
     .getElementById("evil_form")
