@@ -1,4 +1,6 @@
-var noteViewer = new NoteViewer(new Note("hello"));
+var fakeNote = mock("Note");
+fakeNote.stubFunction("print", "hello");
+var noteViewer = new NoteViewer(fakeNote);
 
 describe("NoteViewer", function () {
   it("should show the required note text", function () {
