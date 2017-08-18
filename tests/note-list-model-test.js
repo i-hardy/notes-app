@@ -30,4 +30,8 @@ describe("NoteList", function () {
   it("returns the index of the note", function() {
     expect(noteList.showIndex("third note")).toEqual(2);
   });
+
+  it("displays all notes", function() {
+    expect(noteList.displayAllNotes()).toEqual("hello%0Dsecond note%0Dthird note");
+  });
 });

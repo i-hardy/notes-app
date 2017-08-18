@@ -1,6 +1,7 @@
 collectParams();
 viewFullNote();
 viewForm();
+collectEmail();
 
 var noteList = new NoteList();
 
@@ -15,7 +16,7 @@ function collectParams() {
 }
 
 function getInput() {
-  input = document.forms[0].new_evil_note.value;
+  var input = document.forms[0].new_evil_note.value;
   noteList.addNote(input);
   var index = noteList.noteArray().length - 1;
   document
@@ -71,4 +72,20 @@ function revealElement(id) {
   document
   .getElementById(id)
   .style = "";
+}
+
+function collectEmail() {
+  document
+    .getElementById("email_form")
+    .addEventListener("submit", function(submitEvent) {
+      submitEvent.preventDefault();
+      addEmailBody();
+    });
+}
+
+//uses user's email client to compose an email
+function addEmailBody() {
+  var email = document.forms[1].email.value;
+  var body = noteList.displayAllNotes();
+  window.open('mailto:' + email + '?subject=My%20Evil%20Notes&body=' + body);
 }
